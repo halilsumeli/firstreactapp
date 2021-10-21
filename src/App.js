@@ -55,7 +55,7 @@ export default class App extends Component {
               <Col xs="3"><Categorylist currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={Categoryinfo} /></Col>
               <Col xs="9">
                 <Switch>
-                  <Route exact path="/" render={props => (
+                <Route exact path="/" render={props => (
                     <Productlist
                       products={this.state.products}
                       addToCart={this.addToCart}
@@ -63,7 +63,14 @@ export default class App extends Component {
                       info={Productinfo} />
                   )
                   } />
-                  <Route exact path="/cart" componenet={CartList} />
+                  <Route exact path="/cart" render={props => (
+                    <CartList
+                      cart={this.state.cart}
+                      removeFromCart={this.removeFromCart}
+                      />
+                  )
+                  } />
+                  
                   <Route component={NotFound}></Route>
                 </Switch>
               </Col>
