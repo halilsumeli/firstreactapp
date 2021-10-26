@@ -42,6 +42,7 @@ export default class App extends Component {
   removeFromCart = (product) => {
     let newCart = this.state.cart.filter(c => c.product.id !== product.id)
     this.setState({ cart: newCart })
+    alertify.error(product.productName + " removed from cart!");
   }
   render() {
     let Productinfo = { title: "ProductList" };
